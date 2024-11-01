@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <AssemblyName>grtgTest</AssemblyName>
+    <Product>My first plugin</Product>
+    <Version>1.0.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>
+      https://api.nuget.org/v3/index.json;
+      https://nuget.bepinex.dev/v3/index.json;
+      https://nuget.samboy.dev/v3/index.json
+    </RestoreAdditionalProjectSources>
+    <RootNamespace>grtgTest</RootNamespace>
+    <GameDlls>/home/michael/Documents/goldrush/Managed</GameDlls>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="5.6.0" IncludeAssets="compile" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameDlls)/Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(GameDlls)/Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="$(GameDlls)\UnityEngine.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.AnimationModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.CoreModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.IMGUIModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.ParticleSystemModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.PhysicsModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.TextRenderingModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.UI.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.UIElementsModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.UIModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.UNETModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.UnityWebRequestModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.AssetBundleModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.Physics2DModule.dll" Private="false" SpecificVersion="true" />
+    <Reference Include="$(GameDlls)\UnityEngine.JSONSerializeModule.dll" Private="false" SpecificVersion="true" />
+
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
